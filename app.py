@@ -30,7 +30,7 @@ def test():
 			final_audio.export(audio_buffer)
 			audio_buffer = audio_buffer.getbuffer()
 	merged_audio_base_64 = base64.b64encode(audio_buffer)
-	return jsonify({"merged_audio_base_64": merged_audio_base_64})
+	return jsonify({"merged_audio_base_64": merged_audio_base_64.decode('ascii')})
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
